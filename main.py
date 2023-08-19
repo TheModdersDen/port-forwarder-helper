@@ -18,7 +18,7 @@ with open("ports.txt", "r") as f:
         ports[port] = port_type
     
 if len(ports) == 0:
-    print("No ports to forward!")
+    print("No ports to forward!" + "\n")
     print("Press enter to exit...")
     input()
     sys.exit(0)
@@ -39,8 +39,8 @@ deviceip = u.lanaddr
 # Get the gateway's external IP
 externalip = u.externalipaddress()
 
-print("External IP: " + externalip)
-print("Device IP: " + deviceip)
+print("External IP: " + externalip + "\n")
+print("Device IP: " + deviceip + "\n")
 
 # The current port being forwarded
 current_port = -1
@@ -48,29 +48,29 @@ current_port = -1
 # Clear the ports from the ports list
 def clear_ports() -> None:
     for port, port_type in ports.items():
-        print("Clearing port " + port + "...")
+        print("Clearing port " + port + "...\n")
         # Delete the port mappings, in bulk...
         u.deleteportmapping(int(port), port_type)
-        print("Port cleared!")
+        print("Port cleared!\n")
     
 # Clear a specific port from the ports list
 def clear_port(port) -> None:
-    print("Clearing port " + port + "...")
+    print("Clearing port " + port + "...\n")
     # Delete a specific port mapping
     u.deleteportmapping(int(port), ports[port])
-    print("Port cleared!")
+    print("Port cleared!\n")
 
 def forward_ports() -> None:
     # Forward the ports
     count = 1
     for port, port_type in ports.items():
         current_port = port
-        print("Forwarding port " + port + "...")
+        print("Forwarding port " + port + "...\n")
         # Forward all the ports!!! :)
         # More like the ones in the "ports" list...
         u.addportmapping(int(port), port_type, deviceip, int(port), "Port # " + str(count), '')
         count += 1
-        print("Port forwarded!")
+        print("Port forwarded!\n")
 
 def yes_no(question, default) -> bool:
     if default == True:
@@ -90,22 +90,22 @@ def yes_no(question, default) -> bool:
 def list_forwarded_ports():
     for port, port_type in ports.items():
         if u.getspecificportmapping(int(port), ports[port]) != None:
-            print("Port " + port + " is forwarded!")
+            print("Port " + port + " is forwarded!\n")
         else:
-            print("Port " + port + " is not forwarded!")
- 
+            print("Port " + port + " is not forwarded!\n")
+            
 try:
     forward_ports()
     verify = yes_no("Verify port forwarding? (This will take a while)", True)
     if verify:
         list_forwarded_ports()
 except Exception as e:
-    print("Failed to forward port " + current_port + "!")
+    print("Failed to forward port " + current_port + "!\n")
     print()
-    print("Error:\n" + str(e))
+    print("Error:\n" + str(e) + "\n")
     clear_port(current_port)
 finally:
-    print("Done!")
+    print("Done!\n")
     print()
     print("Press enter to exit...")
     input()
