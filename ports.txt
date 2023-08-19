@@ -1,0 +1,12 @@
+# Add ports, one per line, below this line.
+# For example:
+# 1234=TCP or 1234=UDP
+# The port must come first, followed by the protocol.
+# The protocol must be either TCP or UDP.
+# The port and protocol must be separated by an equal sign.
+4997=TCP
+4998=TCP
+25565=TCP
+25565=UDP
+25575=TCP
+8123=TCP
