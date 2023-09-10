@@ -4,9 +4,13 @@
 # The port must come first, followed by the protocol.
 # The protocol must be either TCP or UDP.
 # The port and protocol must be separated by an equal sign.
-4997=TCP
-4998=TCP
+4996=TCP
+4996=UDP
 25565=TCP
 25565=UDP
-25575=TCP
+25585=TCP
 8123=TCP
+27015=TCP
+27015=UDP
+27016=TCP
+27016=UDP

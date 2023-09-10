@@ -1,5 +1,16 @@
 {
     "cSpell.words": [
-        "miniupnpc"
+        "connectaddress",
+        "connectport",
+        "DNAT",
+        "dport",
+        "findstr",
+        "gethostname",
+        "listenaddress",
+        "listenport",
+        "miniupnpc",
+        "netsh",
+        "portproxy",
+        "PREROUTING"
     ]
 }
