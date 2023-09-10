@@ -41,7 +41,7 @@ class PortForwarder():
                     continue
                 port = line.strip().split("=")[0]
                 port_type = line.strip().split("=")[1]
-                self.self.ports[port] = port_type
+                self.ports[port] = port_type
             
         if len(self.ports) == 0:
             print("No ports to forward!" + "\n")

@@ -6,6 +6,7 @@
         "dport",
         "findstr",
         "gethostname",
+        "ipfw",
         "listenaddress",
         "listenport",
         "miniupnpc",
